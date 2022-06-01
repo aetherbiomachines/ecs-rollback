@@ -44,6 +44,7 @@ jobs:
   ecs-list:
     runs-on: ubuntu-latest
     if:  ${{ github.event.inputs.rollback == 'true' }} 
+    environment: ${{ github.event.inputs.environment_builtin }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
