@@ -26,15 +26,15 @@ on:
         description: 'Hash to Rollback to! (7 characters)'
         required: true 
         type: string
-      tag:
-        description: 'Tag for Docker (latest/dev/staging)'
-        required: true
-        default: 'devlatest' 
-        type: choice
-        options:
-        - devlatest
-        - staginglatest
-        - latest
+      #tag:
+      #  description: 'Tag for Docker (latest/dev/staging)'
+      #  required: true
+      #  default: 'devlatest' 
+      #  type: choice
+      #  options:
+      #  - devlatest
+      #  - staginglatest
+      #  - latest
       environment_builtin:
         description: 'Environment to Rollback!'
         type: environment
@@ -66,7 +66,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           environment: ${{ github.event.inputs.environment }}
           hash: ${{ github.event.inputs.hash }}
-          tag: ${{ github.event.inputs.tag }}
+          tag: ${{ secrets.TAG }}
 
 #  ecs-retag:
 #    runs-on: ubuntu-latest
